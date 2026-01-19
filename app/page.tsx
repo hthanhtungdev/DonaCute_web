@@ -97,14 +97,15 @@ export default function Home() {
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 dark:from-pink-950 dark:via-rose-950 dark:to-pink-900">
       {/* Floating Hearts Background - Optimized for Mobile */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden opacity-40 sm:opacity-60">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div
             key={i}
             className="floating-heart absolute text-pink-400/40 dark:text-pink-300/30"
             style={{
               left: `${Math.random() * 100}%`,
               fontSize: `${Math.random() * 20 + 15}px`,
-              animationDuration: `${Math.random() * 8 + 12}s`,
+              animationDuration: `${Math.random() * 10 + 15}s`,
+              animationDelay: `${Math.random() * 5}s`,
             }}
           >
             ❤️
@@ -252,69 +253,63 @@ export default function Home() {
           }
         }
 
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes float-up {
+        @keyframes float-sway {
           0% {
-            transform: translateY(100vh) rotate(0deg);
+            transform: translateY(100vh) translateX(0) rotate(0deg);
             opacity: 0;
           }
           10% {
-            opacity: 0.6;
+            opacity: 0.8;
+          }
+          50% {
+            transform: translateY(50vh) translateX(20px) rotate(180deg);
           }
           90% {
-            opacity: 0.6;
+            opacity: 0.8;
           }
           100% {
-            transform: translateY(-100vh) rotate(360deg);
+            transform: translateY(-20vh) translateX(-20px) rotate(360deg);
             opacity: 0;
           }
         }
 
-        @keyframes gradient {
-          0%, 100% {
-            background-position: 0% 50%;
+        @keyframes zoom-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
           }
-          50% {
-            background-position: 100% 50%;
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
           }
         }
 
-        @keyframes bounce-slow {
-          0%, 100% {
-            transform: scale(1);
+        @keyframes shimmer {
+          0% {
+            background-position: 200% center;
           }
-          50% {
-            transform: scale(1.1);
+          100% {
+            background-position: -200% center;
           }
         }
 
         .animate-fade-in {
-          animation: fade-in 0.8s ease-out forwards;
+          animation: fade-in 1s ease-out forwards;
         }
 
         .animate-slide-up {
-          animation: slide-up 0.6s ease-out forwards;
+          animation: zoom-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
           opacity: 0;
         }
 
         .floating-heart {
-          animation: float-up linear infinite;
+          animation: float-sway linear infinite;
           will-change: transform, opacity;
         }
 
         .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 3s ease infinite;
+          background-size: 200% auto;
+          animation: shimmer 4s linear infinite;
         }
 
         .animate-bounce-slow {
