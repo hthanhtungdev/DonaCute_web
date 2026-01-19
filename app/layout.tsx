@@ -14,8 +14,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dona & My Love 💕",
-  description: "Our beautiful moments together",
+  title: "Đoan béo 💕",
+  description: "vua dỗi",
 };
 
 export default function RootLayout({
