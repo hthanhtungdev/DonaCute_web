@@ -14,6 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://dona-cute.vercel.app"),
   title: "Thiệp Cưới - Huỳnh Thanh Tùng & Nguyễn Thị Đoan 💕",
   description: "Trân trọng kính mời bạn đến dự tiệc cưới tại nhà Đoan",
   openGraph: {
