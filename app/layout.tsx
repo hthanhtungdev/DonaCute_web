@@ -14,8 +14,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Đoan béo 💕",
-  description: "vua dỗi",
+  title: "Thiệp Cưới - Huỳnh Thanh Tùng & Nguyễn Thị Đoan 💕",
+  description: "Trân trọng kính mời bạn đến dự tiệc cưới tại nhà Đoan",
 };
 
 export default function RootLayout({
